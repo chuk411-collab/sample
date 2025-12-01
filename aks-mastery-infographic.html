@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Azure Kubernetes Service (AKS) Mastery Roadmap – A4 Infographic</title>
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #0f172a; color: #e2e8f0; }
+    .infographic { width: 210mm; height: 297mm; margin: 0 auto; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); box-shadow: 0 0 30px rgba(0,102,204,0.4); position: relative; overflow: hidden; }
+    .header { background: #0066cc; padding: 15px; text-align: center; color: white; font-size: 28px; font-weight: bold; letter-spacing: 1px; }
+    .phase { margin: 12px; background: rgba(30,41,59,0.95); border-radius: 12px; padding: 14px; position: relative; min-height: 120px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    .phase-title { font-size: 20px; font-weight: bold; color: #00d4ff; margin-bottom: 8px; display: flex; align-items: center; }
+    .phase-number { display: inline-block; width: 36px; height: 36px; background: #0066cc; color: white; border-radius: 50%; text-align: center; line-height: 36px; margin-right: 12px; font-size: 18px; font-weight: bold; }
+    .goal { font-style: italic; color: #94a3b8; margin-bottom: 10px; font-size: 14px; }
+    .content { font-size: 12.5px; line-height: 1.45; }
+    ul { margin: 8px 0; padding-left: 20px; }
+    li { margin-bottom: 5px; }
+    .lab { background: rgba(0,212,255,0.15); border-left: 4px solid #00d4ff; padding: 10px; margin: 10px 0; font-weight: 600; color: #ccfbff; }
+    .resources { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-size: 11px; color: #64748b; }
+    .arrow { position: absolute; font-size: 60px; color: #0066cc; font-weight: bold; }
+    .arrow1 { top: 28%; left: 48%; }
+    .arrow2 { top: 48%; left: 48%; }
+    .arrow3 { top: 68%; left: 48%; }
+    .arrow4 { top: 88%; left: 48%; }
+  </style>
+</head>
+<body>
+<div class="infographic">
+
+  <div class="header">
+    From Zero to AKS Hero<br>
+    <span style="font-size:18px;font-weight:normal;">Complete Learning Path: Docker → Kubernetes → AKS → Production Mastery</span>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase" style="top:40px;">
+    <div class="phase-title"><span class="phase-number">1</span>Docker Fundamentals</div>
+    <div class="goal">Goal: Package applications + dependencies into portable images</div>
+    <div class="content">
+      <b>Core Concepts</b><br>
+      • Virtualization vs Containerization (VMs = OS+App | Containers = App+Libs)<br>
+      • Docker Engine: Daemon + Client + Registry<br>
+      • Images (read-only) vs Containers (running instance)<br><br>
+      <b>Key Commands & Files</b><br>
+      • Dockerfile: FROM, RUN, COPY, CMD, ENTRYPOINT<br>
+      • docker build • docker tag • docker push<br>
+      • docker run/stop/exec/logs<br>
+      • Volumes & Bridge networks<br><br>
+      <div class="lab">Checkpoint Lab: Build & run a Python/Node.js web app locally on port 8080</div>
+    </div>
+  </div>
+  <div class="arrow arrow1">↓</div>
+
+  <!-- Phase 2 -->
+  <div class="phase" style="top:240px;">
+    <div class="phase-title"><span class="phase-number">2</span>Kubernetes Fundamentals</div>
+    <div class="goal">Goal: Orchestrate containers at scale with self-healing & networking</div>
+    <div class="content">
+      <b>Architecture</b><br>
+      • Control Plane: API Server, Scheduler, Controller Manager, etcd<br>
+      • Worker Nodes: Kubelet, Kube-proxy, containerd<br><br>
+      <b>Core Objects (YAML)</b><br>
+      • Pod • ReplicaSet • Deployment (rolling updates)<br>
+      • Service: ClusterIP, NodePort, LoadBalancer<br>
+      • Namespace • ConfigMap • Secret<br><br>
+      <div class="lab">Checkpoint Lab: Minikube/Docker Desktop → Deploy your Phase 1 image with Deployment + Service</div>
+    </div>
+  </div>
+  <div class="arrow arrow2">↓</div>
+
+  <!-- Phase 3 -->
+  <div class="phase" style="top:440px;">
+    <div class="phase-title"><span class="phase-number">3</span>Azure Kubernetes Service (AKS)</div>
+    <div class="goal">Goal: Run production clusters with Azure-managed control plane</div>
+    <div class="content">
+      <b>Azure Architecture</b><br>
+      • Managed Control Plane (free) – you only pay for worker nodes<br>
+      • Node Pools (System vs User pools)<br><br>
+      <b>Key Integrations</b><br>
+      • Azure Container Registry (ACR)<br>
+      • Entra ID (Azure AD) authentication<br>
+      • Networking: Kubenet vs Azure CNI (pod gets VNet IP)<br><br>
+      <div class="lab">Checkpoint Lab:<br>
+        1. Create ACR + push image<br>
+        2. Create AKS cluster (az cli)<br>
+        3. Grant AKS → ACR pull permission<br>
+        4. Deploy your app to AKS</div>
+    </div>
+  </div>
+  <div class="arrow arrow3">↓</div>
+
+  <!-- Phase 4 -->
+  <div class="phase" style="top:640px;">
+    <div class="phase-title"><span class="phase-number">4</span>Advanced Production Operations</div>
+    <div class="content" style="font-size:12px;">
+      <b>High Availability</b><br>
+      • Availability Zones (span node pools across 3 zones)<br>
+      • Pod Disruption Budgets (PDB)<br>
+      • Cluster Autoscaler + Horizontal Pod Autoscaler (HPA)<br><br>
+
+      <b>Disaster Recovery</b><br>
+      • Multi-region clusters (East US + West US)<br>
+      • Azure Front Door / Traffic Manager failover<br>
+      • Geo-replicated DBs (Cosmos DB, Azure SQL)<br><br>
+
+      <b>Backup & Restore</b><br>
+      • Velero (open-source) + Azure Backup for AKS (managed Velero)<br><br>
+
+      <b>Monitoring & Observability</b><br>
+      • Container Insights (Azure Monitor)<br>
+      • Managed Prometheus + Managed Grafana<br>
+      • Liveness & Readiness Probes
+    </div>
+  </div>
+  <div class="arrow arrow4">↓</div>
+
+  <!-- Phase 5 -->
+  <div class="phase" style="top:860px;">
+    <div class="phase-title"><span class="phase-number">5</span>Expert & Security Topics</div>
+    <div class="content" style="font-size:12px;">
+      <b>Security</b><br>
+      • RBAC + Azure AD group mapping<br>
+      • Azure Policy for Kubernetes (block public images)<br>
+      • Secrets Store CSI Driver → Azure Key Vault<br><br>
+
+      <b>Ingress & Routing</b><br>
+      • NGINX Ingress / Application Gateway Ingress Controller (AGIC)<br><br>
+
+      <b>GitOps</b><br>
+      • Flux or ArgoCD – declarative Git-driven deployments
+    </div>
+  </div>
+
+  <div class="resources">
+    <b>Recommended Resources</b> • Docker 101 Tutorial • kubernetes.io Interactive Tutorials • Microsoft Learn: Introduction to AKS • AKS Baseline (Well-Architected Framework)
+    <br><i>Print this page as PDF → A4 → "More settings" → disable headers/footers → background graphics ON</i>
+  </div>
+
+</div>
+</body>
+</html>
